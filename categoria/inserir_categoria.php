@@ -1,8 +1,15 @@
 <?php
     require_once "../topo2.php";
     require_once "../conexao.php";
+    session_start();
+    if(!isset($_SESSION['id_pessoa']) || is_null($_SESSION['id_pessoa']) 
+    || empty($_SESSION['id_pessoa'])) {
+    echo "<p>Não existe um usuário logado no sistema.</p>";
+    echo "<a href='FrmLogin.php'>Voltar</a>"; 
+  } else {
     
 ?>
+    <body>
         <?php
 
         if(isset($_POST['descricao'])){
@@ -12,8 +19,7 @@
 
         try {
                 
-                $sql = "
-                insert into tipo(descricao_tipo) values ('$descricao');";
+                $sql = "insert into categoria(descricao_categoria) values ('$descricao');";
             
                 $conn->exec($sql);
                 ?>
@@ -43,7 +49,7 @@
                
             <?php
         }
-  
+    }
     ?>
         
        

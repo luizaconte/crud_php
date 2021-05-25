@@ -15,3 +15,18 @@
             <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     </head>
+
+<body>
+
+    <header id="header" class="header-fixed">
+      <div class="container">
+
+        <div id="logo" class="pull-left">
+          <a href="#" class="scrollto"><img src="../img/logo.png" alt="" title=""></a>
+        </div>
+
+        <nav id="nav-menu-container">
+          
+        </nav>
+      </div>
+  </header>

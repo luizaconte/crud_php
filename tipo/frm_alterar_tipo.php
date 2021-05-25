@@ -9,7 +9,6 @@
     } else {
 
 ?>
-    <body>
         
         <?php
 
@@ -39,18 +38,7 @@
         }
          
         ?>
-      <header id="header" class="header-fixed">
-        <div class="container">
-
-          <div id="logo" class="pull-left">
-            <a href="../index.php#intro" class="scrollto"><img src="../img/logo.png" alt="" title=""></a>
-          </div>
-
-          <nav id="nav-menu-container">
-           
-          </nav><!-- #nav-menu-container -->
-        </div>
-      </header>  
+    
          
     <main id="main" class="main-page" >
    

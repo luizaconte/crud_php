@@ -9,7 +9,6 @@
 } else {
     
 ?>
-    <body>
         <?php
         
         if(isset($_POST['nome']) && isset($_POST['login'])

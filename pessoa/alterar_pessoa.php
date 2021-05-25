@@ -8,7 +8,6 @@
         echo "<a href='FrmLogin.php'>Voltar</a>";
     } else {
 ?>
-    <body>
         <?php
         
         if(isset($_POST['nome']) && isset($_POST['login'])

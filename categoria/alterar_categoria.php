@@ -1,21 +1,18 @@
 <?php
     require_once "../topo2.php";
-    
     session_start();
     if(!isset($_SESSION['id_pessoa']) || is_null($_SESSION['id_pessoa']) 
         || empty($_SESSION['id_pessoa'])) {
         echo "<p>Não existe um usuário logado no sistema.</p>";
         echo "<a href='FrmLogin.php'>Voltar</a>"; 
     } else {
-?>
-        <?php
         
         try{
             require '../conexao.php';
-            $id_tipo = $_POST ["id_tipo"];
-            $descricao = $_POST ["descricao"];
+            $id_categoria = $_POST ["id_categoria"];
+            $descricao = $_POST ["descrição"];
 
-            $sql = "UPDATE tipo SET descricao_tipo = '$descricao' WHERE id_tipo = $id_tipo";
+            $sql = "UPDATE categoria SET descricao_categoria = '$descricao' WHERE id_categoria = $id_categoria";
             
             $conn->exec($sql);
 
@@ -25,7 +22,7 @@
                      Dados alterados com sucesso!
              </div>
              
-             <meta http-equiv='Refresh' content='0.5;URL=../tipo/listar_tipo.php'>
+             <meta http-equiv='Refresh' content='0.5;URL=../categoria/listar_categoria.php'>
             
             <?php
                 }catch(PDOException $e) {
@@ -37,10 +34,7 @@
                 $conn = null;
             
             ?>
+        }
     </body>
-
-    <?php
-
-            }
-    ?>
+    
 </html>

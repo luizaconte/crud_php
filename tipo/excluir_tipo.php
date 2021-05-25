@@ -7,7 +7,6 @@
         echo "<a href='FrmLogin.php'>Voltar</a>";
     } else {
 ?>
-    <body>
         <?php
             require '../conexao.php';
             

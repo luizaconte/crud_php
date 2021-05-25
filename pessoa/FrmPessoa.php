@@ -2,22 +2,7 @@
     require_once "../topo2.php";
             
 ?>
-<body>
 
-  <header id="header" class="header-fixed">
-      <div class="container">
-
-        <div id="logo" class="pull-left">
-          <a href="#" class="scrollto"><img src="../img/logo.png" alt="" title=""></a>
-        </div>
-
-        <nav id="nav-menu-container">
-          
-        </nav>
-      </div>
-  </header>
-  
-    
   
     <main id="main" class="main-page" >
         <form action="inserir_pessoa.php" method="POST" enctype="multipart/form-data" style="width: 58%;margin:auto;">
