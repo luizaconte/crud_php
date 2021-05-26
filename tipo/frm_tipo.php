@@ -34,10 +34,10 @@
         </form> 
         
       </main>
-    </body>
     <?php
 
   }
 
 ?>
+</body>
 </html>

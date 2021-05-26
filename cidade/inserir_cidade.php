@@ -1,12 +1,11 @@
 <?php
     require_once "../topo2.php";
+    session_start();
     if(!isset($_SESSION['id_pessoa']) || is_null($_SESSION['id_pessoa']) 
-    || empty($_SESSION['id_pessoa'])) {
-    echo "<p>Não existe um usuário logado no sistema.</p>";
-    echo "<a href='../FrmLogin.php'>Voltar</a>";
-} else {
-?>
-        <?php
+        || empty($_SESSION['id_pessoa'])) {
+        echo "<p>Não existe um usuário logado no sistema.</p>";
+        echo "<a href='FrmLogin.php'>Voltar</a>";
+    } else {
 
             if(isset($_POST['nome_cidade']) && isset($_POST['cod_estado'])){
 
