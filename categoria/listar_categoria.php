@@ -12,8 +12,6 @@
        
             require '../conexao.php';
             
-            $sql = "Select * From categoria";
-            $result = mysqli_query($conn, $sql);
 
             $sql = "Select * From categoria ORDER BY descricao_categoria";
             $resultado = $conn->query($sql);
@@ -33,8 +31,8 @@
     
         ?>
         
-        <a href="form_alterar_categoria.php?id=<?php echo $id_categoria;?>" >Alterar</a>
-        <a href="excluir_categoria.php?id=<?php echo $id_categoria;?>" >Excluir</a><br><br>
+        <a href="form_alterar_categoria.php?id_categoria=<?php echo $id_categoria;?>" >Alterar</a>
+        <a href="excluir_categoria.php?id_categoria=<?php echo $id_categoria;?>" >Excluir</a><br><br>
         
         
         <?php

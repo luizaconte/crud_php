@@ -23,7 +23,7 @@
                     Excluído com sucesso!
             </div>
             
-            <meta http-equiv='Refresh' content='0.5;URL=../tipo/listar_tipo.php'>
+            <meta http-equiv='Refresh' content='0.5;URL=../categoria/listar_categoria.php'>
             
             <?php
 

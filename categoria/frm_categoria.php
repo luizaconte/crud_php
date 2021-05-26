@@ -10,7 +10,7 @@
 ?>
 
 <main id="main" class="main-page" >
-      <form action="inserir_tipo.php" method="POST"  style="width: 58%;margin:auto;">
+      <form action="inserir_categoria.php" method="POST"  style="width: 58%;margin:auto;">
         <div class="form-group col-md-12" >
           <div class="form-row" >   
             <br>
