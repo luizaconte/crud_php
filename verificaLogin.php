@@ -31,7 +31,6 @@
                         header("location:gerenciador.php");
                     
                     } 
-                    //se nao existe aquele usuario
                                 
                     ?>
                             

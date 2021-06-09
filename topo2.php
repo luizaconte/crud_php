@@ -19,12 +19,15 @@
 <body>
 
     <header id="header" class="header-fixed">
+    <div>
+
       <div class="container">
 
         <div id="logo" class="pull-left">
-          <a href="#" class="scrollto"><img src="../img/logo.png" alt="" title=""></a>
+          <a href="../index.php" class="scrollto"><img src="../img/logo.png" alt="" title=""></a>
         </div>
 
+      </div>
       </div>
     </header>
   <br>

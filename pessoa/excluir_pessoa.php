@@ -4,7 +4,7 @@
     if(!isset($_SESSION['id_pessoa']) || is_null($_SESSION['id_pessoa']) 
         || empty($_SESSION['id_pessoa'])) {
         echo "<p>Não existe um usuário logado no sistema.</p>";
-        echo "<a href='FrmLogin.php'>Voltar</a>";
+        echo "<a href='../FrmLogin.php'>Voltar</a>";
     } else {
 ?>
         <?php
