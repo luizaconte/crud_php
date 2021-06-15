@@ -1,6 +1,6 @@
 <?php
 
-  require_once "../topo2.php";
+  require_once '../topo2.php';
   require_once '../conexao.php';
 
   session_start();
@@ -13,6 +13,8 @@
 ?>
 
   <main id="main" class="main-page">
+
+  <h3>Cadastrar <a href="frm_evento.php">novo</a> evento</h3>
 
     <table style="border:0" cellpadding="5" >
         <tr>
