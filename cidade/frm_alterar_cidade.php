@@ -49,7 +49,7 @@
               
               <h1>Cidade</h1>
 
-              <input type="hidden" name="id_cidade" value="<?php  echo $id_cidade;?>" class="form-control" value="<?php  echo $id_pessoa;?>" >
+              <input type="hidden" name="id_cidade" value="<?php  echo $id_cidade;?>" class="form-control" >
               <label for="nome_cidade ">Cidade</label>
               <input type="text" name="nome_cidade" class="form-control" value="<?php  echo $nome_cidade;?>"  required autofocus><br>
 

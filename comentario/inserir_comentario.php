@@ -45,7 +45,7 @@
                 
     
                 foreach ($dados as $linha) { 
-                
+                $id_comentario=$linha['id_comentario']
                 ?>
                     <div class="form-row" style="background-color:#c4c4c4;">
                         <div class="form-group col-md-8">
@@ -54,6 +54,9 @@
                             <?php 
                             echo $linha['nome_pessoa']."<br><br>";                            
                             ?>
+                            <a href="frm_alterar_comentario.php?id=<?php echo $id_comentario;?>" >Alterar</a> 
+                            <a href="excluir_comentario.php?id=<?php echo $id_comentario;?>&id_evento=<?php echo $id_evento;?>" >Excluir</a><br><br>
+        
                         </a>
                         <?php 
                             echo $linha['texto_comentario'];

@@ -12,6 +12,7 @@
             require '../conexao.php';
             
             $id_comentario = $_GET['id'];
+            $id_evento = $_GET['id_evento'];
             
             $sql = "delete from comentario where id_comentario = $id_comentario";
             
@@ -24,6 +25,8 @@
             </div>
             
             
+            <meta http-equiv='Refresh' content='0.5;URL=../evento/mostra_evento.php?id_evento=<?php echo $id_evento;?>'>
+                
             <?php
 
         } catch(PDOException $e) {
