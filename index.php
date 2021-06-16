@@ -8,6 +8,8 @@
             echo "<p>Não existe um usuário logado no sistema.</p>";
             echo "<a href='./FrmLogin.php'>Voltar</a>";
         } else {
+
+          $tipo_pessoa=$_SESSION['cod_tipo'];
     
     ?>
 <body>
@@ -25,10 +27,21 @@
           <li class="menu-active"><a href="index.php">Início</a></li>
           <li><a href="evento/frm_evento.php">Eventos</a></li>
           <li><a href="pessoa/listar_pessoa.php">Pessoas</a></li>
-          <li><a href="categoria/listar_categoria.php">Categorias</a></li>
-          <li><a href="cidade/listar_cidade.php">Cidade</a></li>
-          <li><a href="tipo/listar_tipo.php">Tipo</a></li>
-          <li><a href="FrmLogin.php">Login</a></li>          
+          <?php
+
+            if($tipo_pessoa = 3){
+
+              echo '
+                <li><a href="categoria/listar_categoria.php">Categorias</a></li>
+                <li><a href="cidade/listar_cidade.php">Cidade</a></li>
+                <li><a href="tipo/listar_tipo.php">Tipo</a></li>
+                <li><a href="FrmLogin.php">Login</a></li> 
+              ';
+
+
+            }
+          
+          ?>         
         </ul>
       </nav>
     </div>
@@ -48,7 +61,7 @@
     </section>
 
 
-    <section id="gallery" class="wow fadeInUp">
+    <section id="gallery">
 
       <div class="container">
         <div class="section-header">
@@ -72,10 +85,12 @@
             foreach ($dados as $linha) { 
                 $idEvento = $linha['id_evento'];
                 $foto=$linha['foto_evento'];
+                
                 ?>
-                <a href="evento/mostra_evento.php?id_evento=<?php echo $idEvento?>" data-gall="gallery-carousel">
-                  <img src="<?php echo $foto;?>" class="img-responsive">
-                </a>
+                  <a href="evento/mostra_evento.php?id_evento=<?php echo $idEvento?>" data-gall="gallery-carousel">
+                    <img src="<?php echo $foto;?>" class="img-responsive">
+                  </a>
+                  
                 <?php
             }
         

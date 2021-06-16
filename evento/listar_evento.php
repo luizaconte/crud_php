@@ -16,8 +16,8 @@
 
   <h3>Cadastrar <a href="frm_evento.php">novo</a> evento</h3>
 
-    <table style="border:0" cellpadding="5" >
-        <tr>
+    <table class="table table-striped" cellpadding="5" style="width: 90%;margin:auto;margin-top:5%" >
+        <tr style="background-color:#730046;color:#ffffff;">
             <td ALIGN=MIDDLE WIDTH=150 ><b>Nome </b></td>
             <td ALIGN=MIDDLE WIDTH=150><b>Descrição </b></td>
             <td ALIGN=MIDDLE WIDTH=150><b>Categoria </b></td>
@@ -39,8 +39,7 @@
             $dados = $resultado->fetchAll(PDO::FETCH_ASSOC);
             ?>
 
-            <h3>Cadastrar <a href="frm_evento.php">novo</a> evento</h3>
-
+            <tbody>
             <?php
 
                 foreach ($dados as $linha) { 
@@ -57,7 +56,7 @@
             
                     ?>
                 
-                    <tr>
+                    <tr style="background-color:#bdbdbd;border-bottom:1px #000 solid">
                         <td ALIGN=MIDDLE WIDTH=150><?php  echo utf8_encode($nome);?></td>
                         <td ALIGN=MIDDLE WIDTH=150><?php  echo $classificacao ;?></td>
                         <td ALIGN=MIDDLE WIDTH=150><?php  echo utf8_encode($categoria );?></td>
@@ -66,15 +65,13 @@
                         <td ALIGN=MIDDLE WIDTH=150><?php  echo utf8_encode( $cidade);?></td>
                         <td><a href="mostra_evento.php?id_evento=<?php  echo $id;?>" target="_parent" >Ver mais</a></td>
                     </tr>
-                    <tr>
-                        <td><br></td>
-                    </tr>   
+                    
 
+                    </tbody>
                     <?php
             
             
                 }
-            
             
 
         }catch(PDOException $e) {
