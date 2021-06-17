@@ -57,9 +57,22 @@
               <h4><?php echo '<a>Censura:</a> '.$classificacao ?></h4>
               <h4><?php echo '<a>Início:</a> '.$dataI.' às '.$hora.' horas'?></h4>
               <h4><?php echo '<a>Término:</a> '.$dataF ?></h4>
-              <h4><?php echo '<a>Ingresso:</a> '.$valorI?></h4>
+              <h4><?php echo '<a>Ingresso:</a> '.$valorI ?></h4>
               <h4><?php echo  '<a>Localização:</a> '.utf8_encode($cidade.'<a>-</a>'.$estado);?></h4>
+              <h4>Pessoas:</h4>
+              <?php
+                  $sql2 = "Select * From Evento E inner join item_evento i On E.id_evento=e.id_evento INNER JOIN Pessoa p ON p.id_pessoa = i.cod_pessoa where id_evento=$idE";
+                
+                  $resultado2 = $conn->query($sql2);
+                  $dados2 = $resultado2->fetchAll(PDO::FETCH_ASSOC);
                   
+                  
+                  foreach ($dados2 as $linha2) {
+                    $nome_pessoa=$linha['nome_pessoa']
+                      echo '<h4><a>$nome_pessoa</a> </h4>';
+                   }
+              
+              ?>
             </div>
           </div>
           <div class="row">
