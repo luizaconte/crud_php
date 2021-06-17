@@ -52,13 +52,44 @@
   <main id="main">
     <section id="intro">
 
-      <div class="intro-container">
+      <div class="intro-container wow fadeIn">
         
         <h1 class="mb-4 pb-0">Best <br><span>Choice</span></h1>
         <p class="mb-4 pb-0">Sistema para busca de contratantes e profissionais de eventos culturais.</p>
       
       </div>
     </section>
+
+    <?php
+
+    
+      if($tipo_pessoa = 1 or $tipo_pessoa= 3){
+
+        echo '
+        <section id="about">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6">
+                  <h2><a>Eventos</a></h2>
+                
+              </div>
+                
+              <div class="col-lg-3">
+                  <h3>É organizador? Cadastre seu evento!</h3>
+                  <p>Clique<a href="evento/frm_evento.php"> aqui</a> para cadastrar seu evento.</p><br><br>
+              </div>
+              <div class="col-lg-3">
+                <h3>Procura por um evento?</h3>
+                <p>Clique<a href="evento/listar_evento.php"> aqui</a> e encontre-o!</p>
+              </div>
+            </div>
+          </div>
+        </section>';
+      }
+    
+    ?>
+
+    
 
 
     <section id="gallery">
@@ -101,6 +132,90 @@
       </div>
 
     </section>
+
+    <?php
+
+    
+      if($tipo_pessoa = 2 or $tipo_pessoa= 3){
+
+        ?>
+        
+        <section id="speakers" class="wow fadeInUp">
+          <section id="about">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-lg-6">
+                          <h2><a>Profissionais</a></h2>
+                      
+                      </div>
+                      <div class="col-lg-3">
+                          <h3>Trabalha em eventos culturais?</h3>
+                          <p>Clique<a href="pessoa/FrmPessoa.php"> aqui</a> e cadastre-se!</p>
+                      </div>
+                     
+                  </div>
+              </div>
+          </section>
+    
+        <br>
+
+        <div class="container">
+            <div class="section-header">
+                <h2>Profissionais</h2>
+                <p>Encontre um profissional para seu evento.</p>
+            </div>
+
+        <div class="row">
+          <?php
+        
+            $sql = "Select * From pessoa p where p.cod_tipo=2";
+
+
+            
+            $resultado = $conn->query($sql);
+            $dados = $resultado->fetchAll(PDO::FETCH_ASSOC);
+        
+        
+            foreach ($dados as $linha) { 
+
+        
+              $id_p=$linha['id_pessoa'];   
+              $nomep=$linha['nome_pessoa'];
+              $descricaop= $linha['descricao_pessoa'];
+              $fotop=$linha['foto_pessoa'];
+      
+              ?>
+                <div class="col-lg-4 col-md-6">
+                  <div class="speaker">
+                    <img src="<?php echo $fotop;?>" class="img-fluid">
+                    
+                    <div class="details">
+                        <h3><a href="pessoa/mostra_pessoa.php?id_pessoa=<?php echo $id_p?>"><?php echo utf8_encode($nomep);?></a></h3>
+                        <p><?php echo utf8_encode($descricaop);?></p>
+                    </div>
+                  </div>
+                </div>
+              <?php
+        }
+       
+        
+        
+        ?>
+         
+         
+        </div>
+      </div>
+
+    </section>
+
+
+    
+
+
+    <?php
+      }
+    
+    ?>
 
   </main>
 
