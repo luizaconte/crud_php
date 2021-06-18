@@ -61,7 +61,7 @@
               <h4><?php echo  '<a>Localização:</a> '.utf8_encode($cidade.'<a>-</a>'.$estado);?></h4>
               <h4><a>Pessoas:</a></h4>
               <?php
-                  $sql2 = "Select * From Evento E inner join item_evento i On E.id_evento=e.id_evento INNER JOIN Pessoa p ON p.id_pessoa = i.cod_pessoa where id_evento=$idE";
+                  $sql2 = "Select * From item_evento i INNER JOIN Pessoa p ON p.id_pessoa = i.cod_pessoa where cod_evento=$idE";
                 
                   $resultado2 = $conn->query($sql2);
                   $dados2 = $resultado2->fetchAll(PDO::FETCH_ASSOC);

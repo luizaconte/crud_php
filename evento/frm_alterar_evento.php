@@ -24,11 +24,10 @@
             $desc= $linha['descricao_evento'];
             $classificacao=$linha['classificacao_evento'];
             $categoria=$linha['cod_categoria'];
-            $dataI=$linha['dataiE'];
-            $dataF=$linha['datafE'];
+            $dataI=$linha['data_inicial_evento'];
+            $dataF=$linha['data_final_evento'];
             $hora=$linha['hora_evento'];
             $cidade=$linha['id_cidade'];
-            $estado=$linha['sigla_estado'];
             $valorI=$linha['valor_ingresso_evento'];
             $foto=$linha['foto_evento'];
             $status=$linha['status_evento'];
@@ -38,7 +37,7 @@
 
   
     <main id="main" class="main-page" >
-      <form  action="inserir_evento.php" method="POST" enctype="multipart/form-data" style="width: 58%;margin:auto;">
+      <form  action="alterar_evento.php" method="POST" enctype="multipart/form-data" style="width: 58%;margin:auto;">
         <div class="form-group col-md-12" >
             <div class="form-row" ><br>
               <h1><a>Evento</a></h1>
@@ -184,10 +183,10 @@
                <br>
 
               <label for="foto">Foto</label><br>
-              <img src="<?php echo $caminho;?>" /><br>
+              <img src="../<?php echo $caminho;?>" /><br>
               <input type="file" name="arquivo" class="form-control" ><br><br>
               
-              <button type="submit" name="entrar" class="btn btn-outline-success" style="background:#cccccc" >Cadastrar</button>
+              <button type="submit" name="entrar" class="btn btn-outline-success" style="background:#cccccc" >Alterar</button>
               <button  type="reset" class="btn btn-outline-danger" style="background: #ff6666" >Limpar</button><br><br>
 
             </div>
@@ -203,6 +202,8 @@
     <?php
 
   }
+  
+  require_once "../rodape.php";
 
 ?>
 </body>

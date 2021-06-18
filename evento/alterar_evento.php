@@ -50,7 +50,7 @@
                                     Dados alterados com sucesso!
                             </div>
                             
-                            <meta http-equiv='Refresh' content='0.5;URL=../pessoa/listar_pessoa.php'>
+                            <meta http-equiv='Refresh' content='0.5;URL=../evento/mostra_evento.php?id_evento=<?php  echo $id;?>'>
                         <?php
                     
                 }catch(PDOException $e) {

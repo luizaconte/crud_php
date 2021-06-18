@@ -2,7 +2,7 @@
     require_once "../topo2.php";
     require_once "../conexao.php";
     
-  session_start();
+    session_start();
     if(!isset($_SESSION['id_pessoa']) || is_null($_SESSION['id_pessoa']) 
     || empty($_SESSION['id_pessoa'])) {
     echo "<p>Não existe um usuário logado no sistema.</p>";
