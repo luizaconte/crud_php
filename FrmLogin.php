@@ -50,9 +50,7 @@
                 
                 <button type="submit" name="entrar" class="btn btn-outline-success" style="background:#cccccc" >Entrar</button>
                 <button  type="reset" class="btn btn-outline-danger" style="background: #ff6666" >Limpar</button><br><br>
-                
-                Não possui uma conta?  <a href="pessoa/FrmPessoa.php" class="alert-link">Clique aqui.</a>
-             </div>
+               </div>
             </div>
           </form>     
         </main>

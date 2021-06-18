@@ -65,10 +65,11 @@
                         <td ALIGN=MIDDLE WIDTH=150><?php  echo utf8_encode( $cidade);?></td>
                         <td><a href="mostra_evento.php?id_evento=<?php  echo $id;?>" target="_parent" >Ver mais</a>
                         <?php
-                            if($_SESSION['cod_tipo'] = 3){
-                                echo   '<a href="frm_alterar_evento.php?id_evento=<?php  echo $id;?>" target="_parent" >| Alterar</a>
-                                <a href="excluir_evento.php?id_evento=<?php  echo $id;?>" target="_parent" > | Excluir</a>';
-
+                            if($_SESSION['cod_tipo'] == 3){
+                                ?>
+                                <a href="frm_alterar_evento.php?id_evento=<?php  echo $id;?>" target="_parent" >| Alterar</a>
+                                <a href="excluir_evento.php?id_evento=<?php  echo $id;?>" target="_parent" > | Excluir</a>
+                                <?php
                             }
                          ?>
                         </td>

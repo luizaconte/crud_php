@@ -25,20 +25,29 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="index.php">Início</a></li>
-          <li><a href="evento/frm_evento.php">Eventos</a></li>
-          <li><a href="pessoa/listar_pessoa.php">Pessoas</a></li>
           <?php
 
-            if($tipo_pessoa = 3){
+            if($tipo_pessoa== 3){
 
-              echo '
+              ?><li><a href="evento/listar_evento.php">Eventos</a></li>
+                <li><a href="pessoa/listar_pessoa.php">Pessoas</a></li>
                 <li><a href="categoria/listar_categoria.php">Categorias</a></li>
                 <li><a href="cidade/listar_cidade.php">Cidade</a></li>
                 <li><a href="tipo/listar_tipo.php">Tipo</a></li>
                 <li><a href="FrmLogin.php">Login</a></li> 
-              ';
+              <?php
 
 
+            }else if($tipo_pessoa==1){ 
+              ?>
+              <li><a href="evento/listar_evento.php">Eventos</a></li>
+              <li><a href="FrmLogin.php">Login</a></li> 
+            <?php
+
+            }else if($tipo_pessoa==2){
+              ?>
+              <li><a href="FrmLogin.php">Login</a></li> 
+              <?php
             }
           
           ?>         
@@ -63,9 +72,9 @@
     <?php
 
     
-      if($tipo_pessoa = 1 or $tipo_pessoa= 3){
+      if($tipo_pessoa== 1 or $tipo_pessoa== 3){
 
-        echo '
+        ?>
         <section id="about">
           <div class="container">
             <div class="row">
@@ -84,7 +93,8 @@
               </div>
             </div>
           </div>
-        </section>';
+        </section>
+        <?php
       }
     
     ?>
@@ -133,14 +143,16 @@
 
     </section>
 
-    <?php
-
     
-      if($tipo_pessoa = 2 or $tipo_pessoa= 3){
-
-        ?>
         
         <section id="speakers" class="wow fadeInUp">
+        <?php
+
+    
+        if($tipo_pessoa== 2 or $tipo_pessoa== 3){
+
+        ?>
+
           <section id="about">
               <div class="container">
                   <div class="row">
@@ -156,6 +168,11 @@
                   </div>
               </div>
           </section>
+          
+      <?php
+        }
+      
+      ?>
     
         <br>
 
@@ -212,10 +229,6 @@
     
 
 
-    <?php
-      }
-    
-    ?>
 
   </main>
 

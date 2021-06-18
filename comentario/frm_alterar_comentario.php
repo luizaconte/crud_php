@@ -1,6 +1,22 @@
-<?php
+<!DOCTYPE html>
 
-  require_once "../topo2.php";
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link href="../img/favicon.png" rel="icon">
+        <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+        <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../lib/animate/animate.min.css" rel="stylesheet">
+        <link href="../lib/venobox/venobox.css" rel="stylesheet">
+        <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+        <link href="../css/style.css" rel="stylesheet">
+    </head>
+    <body>
+<?php
 
   session_start();
   if(!isset($_SESSION['id_pessoa']) || is_null($_SESSION['id_pessoa']) 
@@ -19,7 +35,7 @@
             
             require '../conexao.php';
             
-            $sql = "select * from comentario c inner join evento e on c.cod_evento=e.id_evento where id_comentario=$id_comentario";
+            $sql = "select * from comentario where id_comentario=$id_comentario";
 
             $resultado = $conn->query($sql);
             $dados = $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -27,8 +43,7 @@
           foreach ($dados as $linha) {
             $id_comentario = $linha ['id_comentario'];
             $texto_comentario=$linha['texto_comentario'];
-            $nome_evento=$linha['nome_evento'];
-            $id_evento=$linha['id_evento'];
+            $id_evento=$linha['cod_evento'];
           } 
 
         } catch(PDOException $e) {
@@ -48,10 +63,9 @@
             <div class="form-row" > 
                     
               
-              <h1>Comentário</h1>
-              <input type="hidden" name="id_evento" value="<?php  echo $id_evento;?>" class="form-control"  >
+              <input type="hidden" name="id_evento" value="<?php  echo $cod_evento;?>" class="form-control"  >
               <input type="hidden" name="id_comentario" value="<?php  echo $id_comentario;?>" class="form-control"  >
-              <label for="evento">Evento: <?php  echo $nome_evento;?></label>
+              
               <input type="text" name="texto_comentario" class="form-control" value="<?php  echo $texto_comentario;?>"  required autofocus><br>
 
               

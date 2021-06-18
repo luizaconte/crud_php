@@ -2,6 +2,7 @@
     require_once "../topo2.php";
     require_once "../conexao.php";
     
+  session_start();
     if(!isset($_SESSION['id_pessoa']) || is_null($_SESSION['id_pessoa']) 
     || empty($_SESSION['id_pessoa'])) {
     echo "<p>Não existe um usuário logado no sistema.</p>";
@@ -76,11 +77,10 @@
                     Pessoa cadastrada com sucesso!
                 </div>  
             
-                <meta http-equiv='Refresh' content='0.5;URL=../pessoa/listar_pessoa.php'>
+                <meta http-equiv='Refresh' content='0;URL=../pessoa/listar_pessoa.php'>
 
             <?php
 
-            // <meta http-equiv='Refresh' content='15;URL=../FrmLogin.php'>
 
             } catch(PDOException $e) {
                 echo "Connection failed: " . $e->getMessage();

@@ -1,11 +1,41 @@
 <?php
     require_once "../topo2.php";
+    require_once "../conexao.php";
     session_start();
     if(!isset($_SESSION['id_pessoa']) || is_null($_SESSION['id_pessoa']) 
     || empty($_SESSION['id_pessoa'])) {
     echo "<p>Não existe um usuário logado no sistema.</p>";
     echo "<a href='../FrmLogin.php'>Voltar</a>";
-  } else {       
+  } else {  
+    
+        $idE=$_GET['id_evento'];
+        
+        
+        $sql = "Select DATE_FORMAT(E.data_inicial_evento,'%d/%m/%Y') as dataiE,DATE_FORMAT(E.data_final_evento,'%d/%m/%Y') as datafE,E.id_evento,E.nome_evento,E.descricao_evento,E.classificacao_evento,E.data_final_evento,E.foto_evento,E.hora_evento,"
+                . "E.valor_ingresso_evento,E.status_evento,C.nome_cidade,Es.sigla_estado,Ca.descricao_categoria From Categoria Ca inner join Evento E On E.cod_categoria=Ca.id_categoria INNER JOIN Cidade C "
+                . "ON E.cod_cidade = C.id_cidade INNER JOIN Estado Es ON C.cod_estado=Es.id_estado where Es.id_estado=C.cod_estado and id_evento=$idE";
+        
+        
+        $resultado = $conn->query($sql);
+        $dados = $resultado->fetchAll(PDO::FETCH_ASSOC);
+        
+        
+        foreach ($dados as $linha) { 
+            $id = $linha['id_evento'];
+            $nome = $linha['nome_evento'];
+            $desc= $linha['descricao_evento'];
+            $classificacao=$linha['classificacao_evento'];
+            $categoria=$linha['descricao_categoria'];
+            $dataI=$linha['dataiE'];
+            $dataF=$linha['datafE'];
+            $hora=$linha['hora_evento'];
+            $cidade=$linha['nome_cidade'];
+            $estado=$linha['sigla_estado'];
+            $valorI=$linha['valor_ingresso_evento'];
+            $foto=$linha['foto_evento'];
+            $status=$linha['status_evento'];
+            
+        }
 ?>
 
   
@@ -19,13 +49,13 @@
               
   
               <label for="nome">Nome do evento</label><br>
-              <input type="text" name="nome" class="form-control" required autofocus><br>
+              <input type="text" name="nome" class="form-control" value="<?php echo $nome ?>" required autofocus><br>
               
               <label for="descricao">Descrição</label><br>
-              <textarea name="descricao" id="descricao" maxlength="350" rows="5" cols="50" class="form-control" required autofocus></textarea><br>
+              <textarea name="descricao" id="descricao"   maxlength="350" rows="5" cols="50" class="form-control" required autofocus><?php echo $desc ?></textarea><br>
               
               <label for="classificacao">Classificação indicativa</label><br>
-              <input type="text" name="classificacao" class="form-control" required autofocus><br>
+              <input type="text" name="classificacao"  value="<?php echo $classificacao ?>" class="form-control" required autofocus><br>
               
               <label for="categoria">Categoria</label>
               <select name="cod_categoria" class="form-control">
@@ -65,13 +95,13 @@
                <br>
               
               <label for="data_inicial">Data Inicial</label><br>
-              <input type="date" name="data_inicial" class="form-control" required autofocus><br>
+              <input type="date"  value="<?php echo $dataI ?>" name="data_inicial" class="form-control" required autofocus><br>
               
               <label for="data_final">Data Final</label><br>
-              <input type="date" name="data_final" class="form-control" required autofocus><br>
+              <input type="date"  value="<?php echo $dataF ?>" name="data_final" class="form-control" required autofocus><br>
   
               <label for="hora">Hora</label><br>
-              <input type="time" name="hora" class="form-control" min="00:00" max="23:00" required autofocus><br>
+              <input type="time"  value="<?php echo $hora ?>" name="hora" class="form-control" min="00:00" max="23:00" required autofocus><br>
               
               <label for="cod_cidade">Cidade:</label>
               <select name="cod_cidade" class="form-control">
@@ -80,7 +110,7 @@
                   <?php 
 
                           try{
-                                
+                                 
                             
                               $sql="select * from cidade";
 
@@ -111,7 +141,7 @@
                <br>
              
               <label for="valor_ingresso">Valor do ingresso</label><br>
-              <input type="text" name="valor_ingresso" required autofocus class="valor_ingresso form-control" ><br>
+              <input type="text" name="valor_ingresso"  value="<?php echo $valorI ?>" required autofocus class="valor_ingresso form-control" ><br>
               
 
               <label for="pessoa">Pessoas</label>

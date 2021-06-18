@@ -59,7 +59,7 @@
               <h4><?php echo '<a>Término:</a> '.$dataF ?></h4>
               <h4><?php echo '<a>Ingresso:</a> '.$valorI ?></h4>
               <h4><?php echo  '<a>Localização:</a> '.utf8_encode($cidade.'<a>-</a>'.$estado);?></h4>
-              <h4>Pessoas:</h4>
+              <h4><a>Pessoas:</a></h4>
               <?php
                   $sql2 = "Select * From Evento E inner join item_evento i On E.id_evento=e.id_evento INNER JOIN Pessoa p ON p.id_pessoa = i.cod_pessoa where id_evento=$idE";
                 
@@ -68,8 +68,9 @@
                   
                   
                   foreach ($dados2 as $linha2) {
-                    $nome_pessoa=$linha['nome_pessoa']
-                      echo '<h4><a>$nome_pessoa</a> </h4>';
+                      $nome_pessoa=$linha2['nome_pessoa'];
+
+                      echo '<h4>'.$nome_pessoa.' </h4>';
                    }
               
               ?>
@@ -82,7 +83,7 @@
           </div>
         </div>
           
-          <div style="background-color:#c4c4c4;">
+          <div >
                 
                 <hr>
                 <h2>Comentários</h2>
@@ -105,7 +106,7 @@
                 </div>
                 
             
-                <iframe src="" style="background-color:#c4c4c4;" width="80%" height="500px" frameborder="0" scrolling="auto" name="conteudo" >
+                <iframe src=""  width="80%" height="500px" frameborder="0" scrolling="auto" name="conteudo" >
                 </iframe>   
                 
                 

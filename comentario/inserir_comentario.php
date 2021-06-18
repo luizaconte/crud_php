@@ -50,18 +50,23 @@
                     <div class="form-row" style="background-color:#c4c4c4;">
                         <div class="form-group col-md-8">
                             
-                        <a>
-                            <?php 
-                            echo $linha['nome_pessoa']."<br><br>";                            
+                        <a><?php 
+                            echo $linha['nome_pessoa'];                            
                             ?>
-                            <a href="frm_alterar_comentario.php?id=<?php echo $id_comentario;?>" >Alterar</a> 
-                            <a href="excluir_comentario.php?id=<?php echo $id_comentario;?>&id_evento=<?php echo $id_evento;?>" >Excluir</a><br><br>
-        
+                        
                         </a>
+                        <?php
+
+                        if($linha['cod_pessoa']=$_SESSION['id_pessoa'] ){
+
+                        ?>
+                            <a href="../comentario/frm_alterar_comentario.php?id=<?php echo $id_comentario;?>" ><b>Alterar</b> </a>
+                            <a href="excluir_comentario.php?id=<?php echo $id_comentario;?>&id_evento=<?php echo $id_evento;?>" ><b>Excluir</b></a><br><br>
+
                         <?php 
+                        }
                             echo $linha['texto_comentario'];
-                            ?>
-                            <br><hr>
+                        ?>
                         </div>
                     </div>
                 <?php
