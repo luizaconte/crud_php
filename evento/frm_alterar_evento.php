@@ -11,9 +11,7 @@
         $idE=$_GET['id_evento'];
         
         
-        $sql = "Select DATE_FORMAT(E.data_inicial_evento,'%d/%m/%Y') as dataiE,DATE_FORMAT(E.data_final_evento,'%d/%m/%Y') as datafE,E.id_evento,E.nome_evento,E.descricao_evento,E.classificacao_evento,E.data_final_evento,E.foto_evento,E.hora_evento,"
-                . "E.valor_ingresso_evento,E.status_evento,C.nome_cidade,Es.sigla_estado,Ca.descricao_categoria From Categoria Ca inner join Evento E On E.cod_categoria=Ca.id_categoria INNER JOIN Cidade C "
-                . "ON E.cod_cidade = C.id_cidade INNER JOIN Estado Es ON C.cod_estado=Es.id_estado where Es.id_estado=C.cod_estado and id_evento=$idE";
+        $sql = "Select * from evento where id_evento=$idE";
         
         
         $resultado = $conn->query($sql);
@@ -25,16 +23,16 @@
             $nome = $linha['nome_evento'];
             $desc= $linha['descricao_evento'];
             $classificacao=$linha['classificacao_evento'];
-            $categoria=$linha['descricao_categoria'];
+            $categoria=$linha['cod_categoria'];
             $dataI=$linha['dataiE'];
             $dataF=$linha['datafE'];
             $hora=$linha['hora_evento'];
-            $cidade=$linha['nome_cidade'];
+            $cidade=$linha['id_cidade'];
             $estado=$linha['sigla_estado'];
             $valorI=$linha['valor_ingresso_evento'];
             $foto=$linha['foto_evento'];
             $status=$linha['status_evento'];
-            
+            $caminho=$linha['foto_evento'];            
         }
 ?>
 
@@ -74,7 +72,9 @@
     
                                 foreach ($dados as $linha) {    
                                     ?> 
-                                    <option value="<?php echo $linha['id_categoria'] ?>"> 
+                                    <option value="<?php echo $linha['id_categoria'] ?>"
+                                    <?php if($categoria == $linha['id_categoria']) echo 'selected' ?>  > 
+  
                                         <?php echo utf8_encode ($linha['descricao_categoria'] );?> 
                                     </option> 
                                     <?php 
@@ -119,7 +119,9 @@
   
                               foreach ($dados as $linha) {    
                                   ?> 
-                                  <option value="<?php echo $linha['id_cidade'] ?>"> 
+                                  <option value="<?php echo $linha['id_cidade'] ?>"
+                                    <?php if($cidade == $linha['id_cidade']) echo 'selected' ?>  > 
+   
                                       <?php echo utf8_encode ($linha['nome_cidade'] );?> 
                                   </option> 
                                   <?php 
@@ -181,9 +183,9 @@
                
                <br>
 
-
               <label for="foto">Foto</label><br>
-              <input type="file" name="arquivo" class="form-control" required autofocus><br><br>
+              <img src="<?php echo $caminho;?>" /><br>
+              <input type="file" name="arquivo" class="form-control" ><br><br>
               
               <button type="submit" name="entrar" class="btn btn-outline-success" style="background:#cccccc" >Cadastrar</button>
               <button  type="reset" class="btn btn-outline-danger" style="background: #ff6666" >Limpar</button><br><br>
