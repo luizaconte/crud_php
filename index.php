@@ -145,34 +145,8 @@
 
     
         
-        <section id="speakers" class="wow fadeInUp">
-        <?php
-
-    
-        if($tipo_pessoa== 2 or $tipo_pessoa== 3){
-
-        ?>
-
-          <section id="about">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-lg-6">
-                          <h2><a>Profissionais</a></h2>
-                      
-                      </div>
-                      <div class="col-lg-3">
-                          <h3>Trabalha em eventos culturais?</h3>
-                          <p>Clique<a href="pessoa/FrmPessoa.php"> aqui</a> e cadastre-se!</p>
-                      </div>
-                     
-                  </div>
-              </div>
-          </section>
-          
-      <?php
-        }
-      
-      ?>
+        <section id="speakers" class="wow fadeInUp">  
+  
     
         <br>
 

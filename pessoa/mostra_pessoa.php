@@ -56,7 +56,7 @@
                 <div class="details">
                     <h4 ><?php echo utf8_encode($desc);?></h4>
                     <h4><?php echo '<a>Data de Nascimento:</a>'.$data_nascimento?></h4>
-                    <h4><?php echo '<a>Endereço:</a> '.utf8_encode($endereco); ?></h4>
+                    <h4><?php echo '<a>Endereço:</a> '.$endereco ?></h4>
                     <h4><?php echo '<a>Sexo:</a> '.$sexo?></h4>
                     <h4><?php echo '<a>Telefone:</a> '.$telefone ?></h4>
                     <h4><?php echo '<a>E-mail:</a>'.$email ?></h4>

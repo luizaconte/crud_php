@@ -203,7 +203,6 @@
 
   }
   
-  require_once "../rodape.php";
 
 ?>
 </body>
